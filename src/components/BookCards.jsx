@@ -45,7 +45,7 @@ function BookCards({ filteredBooks}) {
                     </Badge>
                   </div>
 
-                  <Card.Title as="h5" style={{ fontSize: '1.1rem', fontWeight: '700', color: '#1a1a1a', marginBottom: '4px' }}>
+                  <Card.Title as="h5" className='d-block text-truncate' style={{ fontSize: '1.1rem', fontWeight: '700', color: '#1a1a1a', marginBottom: '4px' }}>
                     {book.bookTitle}
                   </Card.Title>
 
