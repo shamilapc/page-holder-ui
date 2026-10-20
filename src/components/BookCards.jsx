@@ -3,8 +3,7 @@ import { Card, Badge, ProgressBar } from 'react-bootstrap';
 import { deleteBookApi } from '../api/allApi';
 import { Link } from 'react-router-dom';
 
-function BookCards({ filteredBooks, setBooks }) {
-
+function BookCards({ filteredBooks}) {
   const deleteBook= async(id)=>{
     const res = await deleteBookApi(id)
   }
@@ -30,12 +29,10 @@ function BookCards({ filteredBooks, setBooks }) {
               </div> 
 
 
-   <div className='d-flex justify-content-center align-items-center shadow-sm' style={{ height: '30px', width: '30px',  borderRadius: '50%',  backgroundColor: 'white', }}> 
-  <i  className="fa-solid fa-trash" style={{ fontSize: '13px', color: '#f06e42' }} onClick={()=>deleteBook(book.id)}/>
-</div>
-
-                 
-                </div>
+          <div className='d-flex justify-content-center align-items-center shadow-sm' style={{ height: '30px', width: '30px',  borderRadius: '50%',  backgroundColor: 'white', }}> 
+             <i  className="fa-solid fa-trash" style={{ fontSize: '13px', color: '#f06e42' }} onClick={()=>deleteBook(book.id)}/>
+            </div> 
+            </div>
 
                 <div style={{ backgroundColor: '#a3c9b8', borderRadius: '12px', overflow: 'hidden', aspectRatio: '4 / 5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Card.Img src={book.bookCover} alt='' style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -56,10 +53,8 @@ function BookCards({ filteredBooks, setBooks }) {
                     {book.authorName} <span style={{ margin: '0 2px' }}>•</span> {book.genre}
                   </Card.Text>
 
-                  <ProgressBar 
-                    style={{ height: '6px', backgroundColor: '#e9ecef', borderRadius: '4px', marginBottom: '6px' }}
-                    children={<div style={{ width: `${progress}%`, height: '100%', backgroundColor: '#718b7e', borderRadius: '4px' }} />} 
-                  />
+                  <ProgressBar style={{ height: '6px', backgroundColor: '#e9ecef', borderRadius: '4px', marginBottom: '6px' }}
+                    children={<div style={{ width: `${progress}%`, height: '100%', backgroundColor: '#718b7e', borderRadius: '4px' }} />} />
 
                   <div style={{ fontSize: '12px', color: '#6c757d', fontWeight: '500' }}>
                     {progress}% completed
@@ -67,11 +62,11 @@ function BookCards({ filteredBooks, setBooks }) {
                 </Card.Body>
               </Card>
             </div>
-          );
+          )
         })}
       </div>
     </>
-  );
+  )
 }
 
 export default BookCards

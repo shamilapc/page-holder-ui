@@ -34,66 +34,12 @@ function AddBook() {
   const [selectedFile, setSelectedFile] = useState(null)
   const [uploading, setUploading] = useState(false)
 
-  /* const addBook = async (e) => {
-    if (e) e.preventDefault(); 
-    const { bookTitle, authorName, genre, readingStatus, totalPages, currentPage, bookCover } = bookData;
-
-    if (bookTitle && authorName && genre && readingStatus && totalPages && currentPage && (bookCover || selectedFile)) {
-      try {
-        setUploading(true);
-     
-        if (selectedFile) {
-          const formData = new FormData();
-          formData.append("file", selectedFile);
-          formData.append(
-            "upload_preset",
-            import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
-          );
-
-          const uploadResponse = await fetch(
-            `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
-            {
-              method: "POST",
-              body: formData
-            }
-          );
-
-          const response = await uploadResponse.json();
-          const coverUrl = response.secure_url;
-          const cover = setBookData({...bookData,bookCover:coverUrl})
-
-        }
-
-       
-        const res = await addBookApi(bookData);
-        
-        if (res && (res.status === 200 || res.status === 201)) {
-          alert("Book added successfully!");
-          setSelectedFile(null);
-        } else {
-          alert("Failed to add book via API.");
-        }
-
-      } catch (error) {
-        console.error("Error during upload or submission:", error);
-        alert("An error occurred. Check console for details.");
-      } finally {
-        setUploading(false);
-      }
-
-    } else {
-      alert("Please fill in all fields completely!");
-    }
-  } */
-
 
 const addBook = async (e) => {
     if (e) e.preventDefault()
     const { bookTitle, authorName, genre, readingStatus, totalPages, currentPage, bookCover } = bookData;
-
     if (bookTitle && authorName && genre && readingStatus && totalPages && currentPage && (bookCover || selectedFile)) {
-   
-        setUploading(true);
+       setUploading(true)
         let currentBookData = { ...bookData }
 
         if (selectedFile) {
@@ -110,7 +56,7 @@ const addBook = async (e) => {
               method: "POST",
               body: formData
             }
-          );
+          )
 
           const response = await uploadResponse.json()
           const coverUrl = response.secure_url
@@ -131,7 +77,7 @@ const addBook = async (e) => {
         }
 
    
-        setUploading(false);
+        setUploading(false)
    
 
     } else {
@@ -141,10 +87,7 @@ const addBook = async (e) => {
 
 
   return (
-    <Paper elevation={3}
-      className=" px-4 px-md-5 py-5"
-      style={{ backgroundColor: '#E9E4D9', minHeight: '100vh' }}
-    >
+    <Paper elevation={3} className=" px-4 px-md-5 py-5" style={{ backgroundColor: '#E9E4D9', minHeight: '100vh' }}>
       <div className="mb-4">
         <h2 style={{ color: '#243C35' }}>Add a New Book</h2>
         <p style={{ color: '#66736B' }}>
@@ -154,15 +97,9 @@ const addBook = async (e) => {
 
       <div className="row justify-content-center">
         <div className="col-lg-8 col-xl-7">
-          <div
-            className="card border-0 shadow-sm p-4 p-md-5"
-            style={{ borderRadius: '16px' }}
-          >
+          <div className="card border-0 shadow-sm p-4 p-md-5" style={{ borderRadius: '16px' }}>
             <div className="text-center mb-4">
-              <i
-                className="fa-solid fa-book-open fs-1 mb-3"
-                style={{ color: '#A8BDA5' }}
-              ></i>
+              <i className="fa-solid fa-book-open fs-1 mb-3" style={{ color: '#A8BDA5' }}></i>
               <h4 style={{ color: '#243C35' }}>Book Details</h4>
               <p className="text-muted mb-0">
                 Fill in the details below to add a book.
@@ -212,62 +149,44 @@ const addBook = async (e) => {
                 <div className="col-md-6">
                   <Form.Group className="mb-3">
                     <Form.Label>Total Pages</Form.Label>
-                    <Form.Control type="number" placeholder="e.g. 320" value={bookData.totalPages} onChange={(e)=>setBookData({...bookData,totalPages:e.target.value})} />
+                    <Form.Control type="text" placeholder="e.g. 320" value={bookData.totalPages} onChange={(e)=>setBookData({...bookData,totalPages:e.target.value})} />
                   </Form.Group>
                 </div>
 
                 <div className="col-md-6">
                   <Form.Group className="mb-3">
                     <Form.Label>Current Page</Form.Label>
-                    <Form.Control type="number" placeholder="e.g. 0" value={bookData.currentPage} onChange={(e)=>setBookData({...bookData,currentPage:e.target.value})} />
+                    <Form.Control type="text" placeholder="e.g. 0" value={bookData.currentPage} onChange={(e)=>setBookData({...bookData,currentPage:e.target.value})} />
                   </Form.Group>
                 </div>
               </div>
 
               <Form.Group className="mb-3">
                 <Form.Label>Book Cover</Form.Label>
-                <TextField 
-                  fullWidth 
-                  type="url" 
-                  placeholder="Paste book cover image URL" 
-                  value={bookData.bookCover} 
-                  onChange={(e) => {
+                <TextField fullWidth type="url" placeholder="Paste book cover image URL" value={bookData.bookCover} onChange={(e) => {
                     setBookData({ ...bookData, bookCover: e.target.value });
                     setSelectedFile(null);
-                  }}  
-                />
+                  }}/>
                
                 <div className='text-center mt-1'>
                   <span>OR</span>
                 </div>
                 
-                <Button  
-                  component="label"  
-                  variant="contained" 
-                  tabIndex={-1} 
-                  startIcon={<CloudUploadIcon />} 
-                  className="p-4 text-center rounded-3 w-100 mt-2"
-                  style={{ border: '2px dashed #A8BDA5', backgroundColor: '#F7F4EC', color: '#243C35' }}
-                > 
+                <Button component="label"  variant="contained" tabIndex={-1} startIcon={<CloudUploadIcon />} className="p-4 text-center rounded-3 w-100 mt-2"
+                  style={{ border: '2px dashed #A8BDA5', backgroundColor: '#F7F4EC', color: '#243C35' }} > 
                   {selectedFile ? selectedFile.name : "Upload files"}
-                  <VisuallyHiddenInput 
-                    type="file" 
-                    onChange={(event) => {
+                  <VisuallyHiddenInput  type="file"  onChange={(event) => {
                       const file = event.target.files[0];
                       if (file) {
                         setSelectedFile(file); 
                       }
-                    }}
-                  />
+                    }} />
                 </Button>
               </Form.Group>
 
               <div className="d-flex gap-3 mt-4">
-                <button  
-                  disabled={uploading}
-                  className="btn py-2 border-0 w-100" 
-                  style={{ backgroundColor: '#243C35', color: '#ffffff', borderRadius: '8px' }} onClick={()=>addBook()}
-                >
+                <button disabled={uploading} className="btn py-2 border-0 w-100" 
+                  style={{ backgroundColor: '#243C35', color: '#ffffff', borderRadius: '8px' }} onClick={()=>addBook()} >
                   <i className="fa-solid fa-plus me-2"></i>
                   Add Book
                 </button>

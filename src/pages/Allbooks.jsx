@@ -56,35 +56,22 @@ const getButtonStyle = (filterName) => {
         </Row>
 
         <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', whiteSpace: 'nowrap', paddingBottom: '4px' }}>
-          <button 
-            style={getButtonStyle("All Books")} 
-            onClick={() => setSelectedFilter("All Books")}
-          >
+          <button style={getButtonStyle("All Books")}  onClick={() => setSelectedFilter("All Books")}>
             All Books
           </button>
 
-          <button 
-            style={getButtonStyle("Currently Reading")} 
-            onClick={() => setSelectedFilter("Currently Reading")}
-          >
+          <button style={getButtonStyle("Currently Reading")} onClick={() => setSelectedFilter("Currently Reading")}>
             Currently Reading
           </button>
 
-          <button 
-            style={getButtonStyle("Want to Read")} 
-            onClick={() => setSelectedFilter("Want to Read")}
-          >
+          <button style={getButtonStyle("Want to Read")} onClick={() => setSelectedFilter("Want to Read")}>
             Want to Read
           </button>
 
-          <button 
-            style={getButtonStyle("Completed")} 
-            onClick={() => setSelectedFilter("Completed")}
-          >
+          <button style={getButtonStyle("Completed")} onClick={() => setSelectedFilter("Completed")}>
             Completed
           </button>
         </div>
-
         <BookCards filteredBooks={filteredBooks} setBooks={setBooks} />
       </Container>
     </div>

@@ -19,15 +19,7 @@ function BookBanner({ books }) {
               >
                 <img
                   src={currentBook.bookCover || "https://placehold.co/100x130/e0dfc5/344b40?text=No+Cover"}
-                  alt={currentBook.bookTitle}
-                  style={{
-                    width: '88px',
-                    height: '130px',
-                    objectFit: 'cover',
-                    borderRadius: '14px',
-                    border: '1px solid #d6d2b8'
-                  }}
-                />
+                  alt='' style={{width: '88px', height: '130px',objectFit: 'cover', borderRadius: '14px',border: '1px solid #d6d2b8'}} />
 
                 <div className="flex-grow-1">
                   <h5 className="mb-1" style={{ color: '#243C35', fontSize: '20px', fontWeight: '600' }}>
@@ -57,11 +49,8 @@ function BookBanner({ books }) {
           </div>
         }
 
-        <Link 
-          to={'/add-books'}
-          className="btn py-2 w-100 mt-4 border-0" 
-          style={{ backgroundColor: '#243C35', color: '#ffffff', borderRadius: '8px', fontSize: '18px', fontWeight: '600', textDecoration: 'none', display: 'block', textAlign: 'center' }}
-        >
+        <Link to={'/add-books'} className="btn py-2 w-100 mt-4 border-0" 
+          style={{ backgroundColor: '#243C35', color: '#ffffff', borderRadius: '8px', fontSize: '18px', fontWeight: '600', textDecoration: 'none', display: 'block', textAlign: 'center' }}>
           + Add a Book
         </Link>
       </div>

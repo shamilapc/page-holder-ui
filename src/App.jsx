@@ -10,8 +10,7 @@ import Edit from './pages/Edit'
 
 function App() {
 const location = useLocation();
- 
-  const inSideAllBooks = location.pathname === '/all-books';
+const inSideAllBooks = location.pathname === '/all-books';
 
   return (
     <>

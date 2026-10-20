@@ -8,7 +8,6 @@ function StatCard({ books }) {
   return (
   <div className="row mt-5 g-4 ">
 
-  {/* Total Books */}
   <div className="col-lg-4 col-md-6">
     <Card className="border-0 shadow-sm p-3"
       style={{ backgroundColor: '#FFFFFF', borderRadius: '12px' }}>
